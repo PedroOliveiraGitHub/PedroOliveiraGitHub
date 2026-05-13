@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Pontos e Linhas</title>
+  <style>
+    body { margin: 0; background: #0f0f0f; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    canvas { display: block; }
+    #instrucoes { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.4); font-family: sans-serif; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div id="instrucoes">Clica ou pressiona qualquer tecla para nova composição</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script>
+    let NUM_PONTOS = 30;
+    let px = [];
+    let py = [];
+
+    function setup() {
+      createCanvas(800, 800);
+      gerarPontos();
+    }
+
+    function draw() {
+      background(15);
+      desenharLinhas();
+      desenharPontos();
+    }
+
+    function gerarPontos() {
+      px = [];
+      py = [];
+      for (let i = 0; i < NUM_PONTOS; i++) {
+        px[i] = random(50, width - 50);
+        py[i] = random(50, height - 50);
+      }
+    }
+
+    function desenharLinhas() {
+      for (let i = 0; i < NUM_PONTOS; i++) {
+        for (let j = i + 1; j < NUM_PONTOS; j++) {
+          let d = dist(px[i], py[i], px[j], py[j]);
+          let alpha = map(d, 0, width, 200, 10);
+          stroke(180, 210, 255, alpha);
+          strokeWeight(0.6);
+          line(px[i], py[i], px[j], py[j]);
+        }
+      }
+    }
+
+    function desenharPontos() {
+      for (let i = 0; i < NUM_PONTOS; i++) {
+        noStroke();
+        fill(255, 220, 100);
+        ellipse(px[i], py[i], 8, 8);
+        fill(255, 220, 100, 40);
+        ellipse(px[i], py[i], 20, 20);
+      }
+    }
+
+    function keyPressed() {
+      gerarPontos();
+    }
+
+    function mousePressed() {
+      gerarPontos();
+    }
+  </script>
+</body>
+</html>
