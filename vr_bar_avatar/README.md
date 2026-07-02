@@ -5,6 +5,8 @@ para ser usada com óculos VR (Meta Quest, Cardboard, etc) ou no desktop.
 
 ## Como testar
 
+### No computador (local)
+
 1. Sirva a pasta com um servidor local, por exemplo:
    ```
    cd vr_bar_avatar
@@ -15,6 +17,21 @@ para ser usada com óculos VR (Meta Quest, Cardboard, etc) ou no desktop.
    - No headset (Quest, etc): abra o link no navegador do óculos e clique em
      "Enter VR". Suas mãos aparecem como o avatar (modelo padrão do A-Frame)
      e seguem os controles.
+
+### No iPhone / Safari (via GitHub Pages)
+
+O Safari do iOS não suporta WebXR (limitação da Apple), então não existe modo
+estéreo "Cardboard" verdadeiro. Ainda assim, ao tocar em "Enter VR" o Safari
+entra em tela cheia e usa o giroscópio do telemóvel para olhar ao redor
+("magic window") — dá para caminhar apontando o telemóvel para os lados.
+
+1. Ative o GitHub Pages para este repositório (uma vez só): Settings → Pages →
+   "Deploy from a branch" → branch `claude/vr-program-images-e6gnf4`, pasta
+   `/ (root)` → Save.
+2. Espere ~1 minuto e abra no Safari:
+   `https://pedrooliveiragithub.github.io/PedroOliveiraGitHub/vr_bar_avatar/`
+3. Toque em "Enter VR" e permita o acesso ao giroscópio quando o Safari
+   perguntar.
 
 ## Estrutura
 
