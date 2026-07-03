@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <title>VR - Foto no Bar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #14171a" fog="type: linear; color: #14171a; near: 12; far: 30">
+      <a-assets>
+        <img id="barSky" src="assets/bar-sky.jpg" />
+      </a-assets>
+
+      <!-- Ambiente: a foto envolve o utilizador (foto ao centro, esbatida para preto nas laterais) -->
+      <a-sky src="#barSky"></a-sky>
+
+      <!-- Chao -->
+      <a-plane
+        rotation="-90 0 0"
+        width="40"
+        height="40"
+        color="#0a0908"
+        material="roughness: 1; metalness: 0"
+      ></a-plane>
+
+      <!-- Iluminacao ambiente, so para as maos/avatar ficarem visiveis -->
+      <a-light type="ambient" color="#606060" intensity="0.8"></a-light>
+      <a-light type="directional" position="0 4 4" color="#ffffff" intensity="0.3"></a-light>
+
+      <!-- Rig do jogador / avatar -->
+      <a-entity id="rig" position="0 0 3">
+        <a-camera id="head" look-controls wasd-controls="acceleration: 20" position="0 1.6 0">
+          <a-cursor color="#e8e8e8"></a-cursor>
+        </a-camera>
+        <!-- Maos do avatar: seguem os controles VR quando em headset -->
+        <a-entity hand-controls="hand: left"></a-entity>
+        <a-entity hand-controls="hand: right"></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
