@@ -9,51 +9,24 @@
   <body>
     <a-scene background="color: #14171a" fog="type: linear; color: #14171a; near: 12; far: 30">
       <a-assets>
-        <img id="barPhoto" src="assets/bar-photo.jpg" />
+        <img id="barSky" src="assets/bar-sky.jpg" />
       </a-assets>
 
-      <!-- Ceu / ambiente -->
-      <a-sky color="#14171a"></a-sky>
+      <!-- Ambiente: a foto envolve o utilizador (foto ao centro, esbatida para preto nas laterais) -->
+      <a-sky src="#barSky"></a-sky>
 
       <!-- Chao -->
       <a-plane
         rotation="-90 0 0"
         width="40"
         height="40"
-        color="#15181c"
+        color="#0a0908"
         material="roughness: 1; metalness: 0"
       ></a-plane>
 
-      <!-- Parede de fundo (moldura) -->
-      <a-plane
-        position="0 2.6 -6.05"
-        width="7.6"
-        height="5.7"
-        color="#0c0e10"
-      ></a-plane>
-
-      <!-- Foto -->
-      <a-plane
-        position="0 2.6 -6"
-        width="7"
-        height="5.25"
-        material="src: #barPhoto; shader: flat"
-      ></a-plane>
-
-      <!-- Titulo -->
-      <a-text
-        value="Um momento no bar"
-        position="0 5.7 -6"
-        align="center"
-        width="8"
-        color="#e8e8e8"
-      ></a-text>
-
-      <!-- Iluminacao ambiente, estilo luzes de teto -->
-      <a-light type="ambient" color="#404450" intensity="0.6"></a-light>
-      <a-light type="point" position="-2 3.5 -3" color="#ffdca8" intensity="0.7"></a-light>
-      <a-light type="point" position="2 3.5 -3" color="#ffdca8" intensity="0.7"></a-light>
-      <a-light type="directional" position="0 4 4" color="#ffffff" intensity="0.4"></a-light>
+      <!-- Iluminacao ambiente, so para as maos/avatar ficarem visiveis -->
+      <a-light type="ambient" color="#606060" intensity="0.8"></a-light>
+      <a-light type="directional" position="0 4 4" color="#ffffff" intensity="0.3"></a-light>
 
       <!-- Rig do jogador / avatar -->
       <a-entity id="rig" position="0 0 3">

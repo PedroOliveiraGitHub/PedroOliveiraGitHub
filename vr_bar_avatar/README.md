@@ -35,16 +35,24 @@ entra em tela cheia e usa o giroscópio do telemóvel para olhar ao redor
 
 ## Estrutura
 
-- `index.html` — a cena VR (sala com a foto em destaque numa "moldura").
-- `assets/bar-photo.jpg` — a foto usada na cena (otimizada para web).
+- `index.html` — a cena VR: a foto envolve o utilizador como ambiente (não é
+  um quadro numa parede, é o "céu" da cena).
+- `assets/bar-photo.jpg` — a foto original, otimizada para web.
+- `assets/bar-sky.jpg` — versão usada no ambiente: a foto original centrada
+  num canvas 2x mais largo, com as bordas esbatidas para preto. Como a foto
+  não é uma panorâmica 360° real, isto evita esticar a imagem de forma feia
+  — você fica "dentro" da foto olhando para a frente, e ao virar-se vê uma
+  transição suave para um vazio escuro em vez de a imagem distorcida.
 
 ## Personalizar
 
-- **Trocar a foto**: substitua `assets/bar-photo.jpg` por outra imagem
-  (mantenha proporção próxima de 4:3, ou ajuste `width`/`height` do
-  `<a-plane>` da foto em `index.html`).
-- **Adicionar mais fotos**: duplique o bloco `<a-plane>` da foto com uma nova
-  posição (ex: outra parede) e uma nova imagem em `<a-assets>`.
+- **Trocar a foto**: gere um novo `assets/bar-sky.jpg` a partir da sua foto
+  (mesmo processo: canvas 2x a largura da foto, foto centrada, bordas
+  esbatidas para preto) e substitua o ficheiro — ou me envie a foto nova que
+  eu gero de novo.
+- **Mais foto ao redor / menos vazio atrás**: ajuste a largura do canvas em
+  relação à foto (hoje é 2x, ou seja, a foto cobre 180° e o resto é vazio).
+  Usar 1.5x cobre mais ângulo (240°) à custa de mais distorção.
 - **Avatar mais elaborado**: hoje o avatar é representado pelas mãos padrão
   do A-Frame (`hand-controls`). Para usar um modelo 3D completo (avatar
   Ready Player Me, VRoid, etc. em `.glb`/`.vrm`), me envie o arquivo que eu
