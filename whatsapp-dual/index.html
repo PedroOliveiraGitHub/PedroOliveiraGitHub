@@ -47,11 +47,19 @@
       font-size: 15px;
       flex-shrink: 0;
     }
+    .badge.badge-logo {
+      background: #ffffff;
+      padding: 4px;
+    }
+    .badge.badge-logo svg {
+      width: 100%;
+      height: 100%;
+    }
     .pane-personal .pane-header {
       background: #128C7E;
     }
     .pane-business .pane-header {
-      background: #0F6E63;
+      background: #315C82;
     }
     webview {
       flex: 1;
@@ -74,7 +82,18 @@
     </div>
     <div class="pane pane-business">
       <div class="pane-header">
-        <span class="badge">🦶</span>
+        <span class="badge badge-logo">
+          <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="epGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#3E6DA0" />
+                <stop offset="100%" stop-color="#A9CDE8" />
+              </linearGradient>
+            </defs>
+            <path d="M14,48 A19,19 0 0 1 52,48" fill="none" stroke="url(#epGradient)" stroke-width="11" stroke-linecap="round" />
+            <path d="M48,48 A19,19 0 0 1 86,48" fill="none" stroke="url(#epGradient)" stroke-width="11" stroke-linecap="round" />
+          </svg>
+        </span>
         <span>Espaço do Pé</span>
       </div>
       <webview
