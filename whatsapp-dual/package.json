@@ -4,9 +4,25 @@
   "description": "App de desktop para correr o WhatsApp pessoal e o WhatsApp Business lado a lado",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder --mac"
   },
   "devDependencies": {
-    "electron": "^31.0.0"
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.pedrooliveira.whatsappdual",
+    "productName": "WhatsApp Dual",
+    "files": [
+      "main.js",
+      "index.html"
+    ],
+    "mac": {
+      "category": "public.app-category.social-networking",
+      "target": [
+        "dmg"
+      ]
+    }
   }
 }

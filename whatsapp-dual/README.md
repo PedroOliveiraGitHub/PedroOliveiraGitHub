@@ -30,13 +30,15 @@ npm start
 3. No painel direito ("WhatsApp Business"), no telemóvel com a conta Business: **Definições → Dispositivos ligados → Ligar dispositivo** e digitaliza o QR code desse painel.
 4. As sessões ficam guardadas — da próxima vez que abrires a app (`npm start`), ambas as contas já aparecem ligadas automaticamente.
 
-## Criar uma app instalável (opcional)
+## Criar a app instalável (.app / .dmg)
 
-Para gerar um `.app` que podes colocar no Dock sem precisar de correr `npm start` no terminal, podes usar o [electron-builder](https://www.electron.build/):
+Para gerares um "WhatsApp Dual.app" que corres a partir do Dock ou do Launchpad, sem precisares do terminal depois:
 
 ```bash
-npm install --save-dev electron-builder
-npx electron-builder --mac
+npm install
+npm run dist
 ```
 
-O instalador fica na pasta `dist/`.
+Isto tem de ser executado **no teu Mac** (não funciona a partir de outro sistema operativo). No fim, a pasta `dist/` fica com um ficheiro `.dmg` — abre-o e arrasta o "WhatsApp Dual" para a pasta `Aplicações`. A partir daí a app aparece no Launchpad como qualquer outra, e podes fixá-la no Dock.
+
+Nota: como a app não está assinada com um certificado de developer da Apple, da primeira vez que a abrires o macOS pode bloquear com um aviso ("não é possível abrir porque é de um developer não identificado"). Para autorizar: clique direito no ícone → **Abrir** → **Abrir** (só é preciso da primeira vez).
