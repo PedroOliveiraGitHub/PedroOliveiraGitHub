@@ -1,0 +1,12 @@
+{
+  "name": "whatsapp-dual",
+  "version": "1.0.0",
+  "description": "App de desktop para correr o WhatsApp pessoal e o WhatsApp Business lado a lado",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^31.0.0"
+  }
+}
