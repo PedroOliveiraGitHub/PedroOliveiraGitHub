@@ -20,19 +20,38 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      border-right: 1px solid #2a3942;
+      border-right: 1px solid #000;
     }
     .pane:last-child {
       border-right: none;
     }
     .pane-header {
-      padding: 10px 16px;
-      color: #e9edef;
-      background: #202c33;
-      font-size: 14px;
-      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      font-size: 15px;
+      font-weight: 700;
       letter-spacing: 0.3px;
-      border-bottom: 1px solid #2a3942;
+      color: #ffffff;
+      border-bottom: 3px solid rgba(0, 0, 0, 0.25);
+    }
+    .badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.22);
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .pane-personal .pane-header {
+      background: #128C7E;
+    }
+    .pane-business .pane-header {
+      background: #0F6E63;
     }
     webview {
       flex: 1;
@@ -42,16 +61,22 @@
 </head>
 <body>
   <div class="container">
-    <div class="pane">
-      <div class="pane-header">WhatsApp Pessoal</div>
+    <div class="pane pane-personal">
+      <div class="pane-header">
+        <span class="badge">👤</span>
+        <span>Pessoal</span>
+      </div>
       <webview
         src="https://web.whatsapp.com/"
         partition="persist:whatsapp-personal"
         useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
       ></webview>
     </div>
-    <div class="pane">
-      <div class="pane-header">WhatsApp Business</div>
+    <div class="pane pane-business">
+      <div class="pane-header">
+        <span class="badge">🦶</span>
+        <span>Espaço do Pé</span>
+      </div>
       <webview
         src="https://web.whatsapp.com/"
         partition="persist:whatsapp-business"
