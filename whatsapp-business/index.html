@@ -11,12 +11,6 @@
       background: #111b21;
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     }
-    .pane {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      width: 100%;
-    }
     .pane-header {
       display: flex;
       align-items: center;
@@ -44,50 +38,23 @@
       width: 100%;
       height: 100%;
     }
-    webview {
-      flex: 1;
-      width: 100%;
-    }
   </style>
 </head>
 <body>
-  <div class="pane">
-    <div class="pane-header">
-      <span class="badge">
-        <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="epGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#3E6DA0" />
-              <stop offset="100%" stop-color="#A9CDE8" />
-            </linearGradient>
-          </defs>
-          <path d="M14,48 A19,19 0 0 1 52,48" fill="none" stroke="url(#epGradient)" stroke-width="11" stroke-linecap="round" />
-          <path d="M48,48 A19,19 0 0 1 86,48" fill="none" stroke="url(#epGradient)" stroke-width="11" stroke-linecap="round" />
-        </svg>
-      </span>
-      <span>Espaço do Pé</span>
-    </div>
-    <webview
-      id="wv"
-      src="https://web.whatsapp.com/"
-      partition="persist:whatsapp-business"
-      useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
-    ></webview>
+  <div class="pane-header">
+    <span class="badge">
+      <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="epGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#3E6DA0" />
+            <stop offset="100%" stop-color="#A9CDE8" />
+          </linearGradient>
+        </defs>
+        <path d="M14,48 A19,19 0 0 1 52,48" fill="none" stroke="url(#epGradient)" stroke-width="11" stroke-linecap="round" />
+        <path d="M48,48 A19,19 0 0 1 86,48" fill="none" stroke="url(#epGradient)" stroke-width="11" stroke-linecap="round" />
+      </svg>
+    </span>
+    <span>Espaço do Pé</span>
   </div>
-  <script>
-    const wv = document.getElementById('wv');
-    wv.addEventListener('did-fail-load', (e) => {
-      console.error('[webview] did-fail-load', e.errorCode, e.errorDescription, e.validatedURL);
-    });
-    wv.addEventListener('console-message', (e) => {
-      console.log('[webview console]', e.message);
-    });
-    wv.addEventListener('dom-ready', () => {
-      console.log('[webview] dom-ready, current URL:', wv.getURL());
-    });
-    wv.addEventListener('did-finish-load', () => {
-      console.log('[webview] did-finish-load');
-    });
-  </script>
 </body>
 </html>
