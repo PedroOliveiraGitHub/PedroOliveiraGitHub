@@ -18,6 +18,7 @@
       "main.js",
       "index.html"
     ],
+    "icon": "build/icon.png",
     "mac": {
       "category": "public.app-category.social-networking",
       "target": [
