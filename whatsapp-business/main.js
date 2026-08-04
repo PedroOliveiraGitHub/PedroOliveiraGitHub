@@ -13,6 +13,7 @@ function createWindow() {
   });
 
   win.loadFile('index.html');
+  win.webContents.openDevTools({ mode: 'right' });
 }
 
 app.whenReady().then(() => {

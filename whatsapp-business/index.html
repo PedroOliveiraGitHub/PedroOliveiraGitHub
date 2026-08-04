@@ -68,10 +68,26 @@
       <span>Espaço do Pé</span>
     </div>
     <webview
+      id="wv"
       src="https://web.whatsapp.com/"
       partition="persist:whatsapp-business"
       useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     ></webview>
   </div>
+  <script>
+    const wv = document.getElementById('wv');
+    wv.addEventListener('did-fail-load', (e) => {
+      console.error('[webview] did-fail-load', e.errorCode, e.errorDescription, e.validatedURL);
+    });
+    wv.addEventListener('console-message', (e) => {
+      console.log('[webview console]', e.message);
+    });
+    wv.addEventListener('dom-ready', () => {
+      console.log('[webview] dom-ready, current URL:', wv.getURL());
+    });
+    wv.addEventListener('did-finish-load', () => {
+      console.log('[webview] did-finish-load');
+    });
+  </script>
 </body>
 </html>
